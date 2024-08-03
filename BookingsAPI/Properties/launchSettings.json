@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "bookings.api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55716;http://localhost:55717"
+    }
+  }
+}
