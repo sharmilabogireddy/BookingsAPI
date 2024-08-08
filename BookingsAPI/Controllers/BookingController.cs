@@ -1,4 +1,6 @@
-﻿using BookingsAPI.Models;
+﻿using BookingsAPI.core.Requests;
+using BookingsAPI.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +14,12 @@ namespace BookingsAPI.Controllers
         private static Dictionary<int,int>  currentBookings = new Dictionary<int,int>();
         private static TimeSpan bookingStartTime = new TimeSpan(9, 0, 0);
         private static TimeSpan bookingEndTime = new TimeSpan(16, 0, 0);
+        private readonly IMediator _mediator;
+
+        public BookingController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         /// <summary>
         /// Create a new booking
@@ -24,8 +32,15 @@ namespace BookingsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<BookingResponse> CreateBooking([FromBody] BookingRequest requestModel)
+        public async Task<ActionResult<BookingResponse>> CreateBooking([FromBody] BookingRequest requestModel)
         {
+            var result = await _mediator.Send(new CreateBookingRequest()
+            {
+                name = requestModel.name,
+                bookingTime = requestModel.bookingTime
+            });
+
+            /*
             //Check for data validations
             if (string.IsNullOrEmpty(requestModel.name))
             {
@@ -63,7 +78,7 @@ namespace BookingsAPI.Controllers
             else
             {
                 return Conflict("Bookings are full at the specified time.");
-            }
+            }*/
 
             BookingResponse response = new BookingResponse()
             {

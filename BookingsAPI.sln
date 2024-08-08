@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsAPI", "BookingsAPI\BookingsAPI.csproj", "{2FE20CA8-6B93-41B2-81FF-427E92CC1D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingsAPI", "BookingsAPI\BookingsAPI.csproj", "{2FE20CA8-6B93-41B2-81FF-427E92CC1D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsAPI.Tests", "BookingsAPI.Tests\BookingsAPI.Tests.csproj", "{399DB667-3E74-4C7B-9F24-32524E633C10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingsAPI.Tests", "BookingsAPI.Tests\BookingsAPI.Tests.csproj", "{399DB667-3E74-4C7B-9F24-32524E633C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsAPI.core", "BookingsAPI.core\BookingsAPI.core.csproj", "{D96FE29C-87DB-42B1-9B40-55D364226428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsAPI.shared", "BookingsAPI.shared\BookingsAPI.shared.csproj", "{4CC3DBC9-DBE9-44BB-8DF0-F9F1076E62CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{399DB667-3E74-4C7B-9F24-32524E633C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{399DB667-3E74-4C7B-9F24-32524E633C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{399DB667-3E74-4C7B-9F24-32524E633C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96FE29C-87DB-42B1-9B40-55D364226428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96FE29C-87DB-42B1-9B40-55D364226428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96FE29C-87DB-42B1-9B40-55D364226428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96FE29C-87DB-42B1-9B40-55D364226428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC3DBC9-DBE9-44BB-8DF0-F9F1076E62CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC3DBC9-DBE9-44BB-8DF0-F9F1076E62CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC3DBC9-DBE9-44BB-8DF0-F9F1076E62CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC3DBC9-DBE9-44BB-8DF0-F9F1076E62CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
