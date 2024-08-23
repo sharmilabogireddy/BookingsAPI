@@ -21,30 +21,19 @@ namespace BookingsAPI.core.Handlers
         private static TimeSpan bookingStartTime = new TimeSpan(9, 0, 0);
         private static TimeSpan bookingEndTime = new TimeSpan(16, 0, 0);
 
-        private readonly IMapper _mapper;
-
-        public CreateBookingHandler(IMapper mapper)
-        {
-            _mapper = mapper;
-        }
-
         public async Task<BookingDto> Handle(CreateBookingRequest request, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(request.name))
             {
                 throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.NAME_IVALID);
-                //return BadRequest("Name is not valid.");
             }
             if (string.IsNullOrEmpty(request.bookingTime))
             {
                 throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_IVALID);
-
-                //return BadRequest("Booking time is not valid.");
             }
 
             if (!TimeSpan.TryParse(request.bookingTime, out TimeSpan bookingTimeObject))
             {
-                //return BadRequest("Booking time is not valid.");
                 throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_IVALID);
 
             }
@@ -53,9 +42,7 @@ namespace BookingsAPI.core.Handlers
 
             if (!isValidBookingTime)
             {
-                //return BadRequest("Booking time is not in business hours.");
                 throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_NOT_IN_BUSSINESS_HOURS);
-
             }
 
             int defaultCount = 0;
@@ -73,8 +60,6 @@ namespace BookingsAPI.core.Handlers
             else
             {
                 throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_IVALID);
-
-                //return Conflict("Bookings are full at the specified time.");
             }
             BookingDto booking = new BookingDto() { name = request.name, bookingTime = request.bookingTime };
 

@@ -10,10 +10,6 @@ namespace BookingsAPI.Controllers
     [Route("[controller]")]
     public class BookingController : ControllerBase
     {
-        private int _maxBookingCapacity = 4;
-        private static Dictionary<int,int>  currentBookings = new Dictionary<int,int>();
-        private static TimeSpan bookingStartTime = new TimeSpan(9, 0, 0);
-        private static TimeSpan bookingEndTime = new TimeSpan(16, 0, 0);
         private readonly IMediator _mediator;
 
         public BookingController(IMediator mediator)
@@ -39,46 +35,6 @@ namespace BookingsAPI.Controllers
                 name = requestModel.name,
                 bookingTime = requestModel.bookingTime
             });
-
-            /*
-            //Check for data validations
-            if (string.IsNullOrEmpty(requestModel.name))
-            {
-                return BadRequest("Name is not valid.");
-            }
-            if (string.IsNullOrEmpty(requestModel.bookingTime))
-            {
-                return BadRequest("Booking time is not valid.");
-            }
-
-            if(!TimeSpan.TryParse(requestModel.bookingTime, out TimeSpan bookingTimeObject))
-            {
-                return BadRequest("Booking time is not valid.");
-            }
-
-            bool isValidBookingTime = bookingTimeObject >= bookingStartTime && bookingTimeObject <= bookingEndTime;
-
-            if (!isValidBookingTime)
-            {
-                return BadRequest("Booking time is not in business hours.");
-            }
-
-            int defaultCount = 0;
-            if (!currentBookings.TryGetValue(bookingTimeObject.Hours, out int count))
-            {
-                count = defaultCount;
-            }
-
-            //Check for max simultaneous bookings.
-            if(count < _maxBookingCapacity)
-            {
-                count++;
-                currentBookings[bookingTimeObject.Hours] = count;
-            }
-            else
-            {
-                return Conflict("Bookings are full at the specified time.");
-            }*/
 
             BookingResponse response = new BookingResponse()
             {
